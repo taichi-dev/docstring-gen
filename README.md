@@ -57,7 +57,11 @@ Because Taichi's docstring coverage isn't so great, we need to prune `src/`...
     taichi.snode
     ```
 
-2. Remove all the `:undoc-members:` in the rst files
+2. Remove all the `:undoc-members:` in the rst files:
+
+    ```sh
+    python prune_rst.py
+    ```
 
 
 # References

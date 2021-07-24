@@ -10,6 +10,7 @@ Subpackages
    taichi.aot
    taichi.core
    taichi.lang
+   taichi.misc
    taichi.snode
 
 

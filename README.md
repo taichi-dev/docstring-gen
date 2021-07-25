@@ -1,6 +1,15 @@
-We use the Sphinx toolchain to transform the Python docstrings into HTMLs.
+We use the Sphinx toolchain to transform the Python docstrings into HTMLs. This is as simple as:
 
-# First-Time Setup
+```sh
+cd experimental/
+make html
+```
+
+Then go to `_build/html` and open `index.html` in your browser.
+
+# Additional Notes
+
+## First-time setup
 
 Make sure `sphinx` is installed in your current Python environment.
 
@@ -8,14 +17,6 @@ Make sure `sphinx` is installed in your current Python environment.
 $ pip install sphinx sphinx-rtd-theme
 ```
 
-# Update the Docs
-
-```sh
-cd experimental/
-make html
-```
-
-# Additional Notes
 
 ## How is `experimental/` created?
 

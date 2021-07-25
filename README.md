@@ -15,10 +15,12 @@ cd experimental/
 make html
 ```
 
-# How `experimental/` is Created
+# Additional Notes
+
+## How is `experimental/` created?
 
 ```sh
-mkdir experimental && cd exmperimental
+mkdir experimental && cd experimental
 
 sphinx-quickstart
 ```
@@ -54,6 +56,7 @@ Because Taichi's docstring coverage isn't so great, we need to prune `src/`...
     taichi.aot
     taichi.core
     taichi.lang
+    taichi.misc
     taichi.snode
     ```
 

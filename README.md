@@ -45,7 +45,7 @@ extensions = [
 Run the following command to generate the directives for `sphinx-autodoc`:
 
 ```sh
-$ export TAICHI_REPO_DIR=/path/to/taichi
+$ export TAICHI_REPO_DIR=/path/to/taichi // optional
 $ sphinx-apidoc -f -o src $TAICHI_REPO_DIR
 ```
 

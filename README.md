@@ -32,7 +32,7 @@ After this, change `conf.py`:
 # ...
 import os
 import sys
-taichi_path = os.getenv('TAICHI_PATH', '.')
+taichi_path = os.getenv('TAICHI_REPO_DIR', '.')
 sys.path.insert(0, os.path.abspath(taichi_path))
 
 # ...
@@ -45,8 +45,8 @@ extensions = [
 Run the following command to generate the directives for `sphinx-autodoc`:
 
 ```sh
-$ export TAICHI_PATH=/path/to/taichi
-$ sphinx-apidoc -f -o src $TAICHI_PATH
+$ export TAICHI_REPO_DIR=/path/to/taichi
+$ sphinx-apidoc -f -o src $TAICHI_REPO_DIR
 ```
 
 Because Taichi's docstring coverage isn't so great, we need to prune `src/`...

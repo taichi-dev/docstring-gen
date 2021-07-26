@@ -12,7 +12,7 @@
 #
 import os
 import sys
-taichi_path = os.getenv('TAICHI_PATH', '.')
+taichi_path = os.getenv('TAICHI_REPO_DIR', '.')
 sys.path.insert(0, os.path.abspath(taichi_path))
 
 

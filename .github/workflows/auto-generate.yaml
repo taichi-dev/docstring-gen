@@ -1,0 +1,24 @@
+name: Taichi API docs nightly update cron
+on:
+  schedule:
+    # run every day at 00:00
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: taichi-dev/taichi
+        path: taichi
+    - uses: actions/checkout@v2
+    - name: Set env
+      run: echo "TAICHI_PATH=${GITHUB_WORKSPACE}/taichi" >> $GITHUB_ENV
+    - uses: ammaraskar/sphinx-action@35082eb
+      with:
+        docs-folder: "experimental/"
+        build-command: "make html"
+

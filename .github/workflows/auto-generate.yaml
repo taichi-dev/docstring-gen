@@ -10,15 +10,17 @@ jobs:
   build-docs:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Taichi
+      uses: actions/checkout@v2
       with:
         repository: taichi-dev/taichi
         path: taichi
-    - uses: actions/checkout@v2
+    - name: Checkout current repo
+      uses: actions/checkout@v2
     - name: Set env
       run: echo "TAICHI_PATH=${GITHUB_WORKSPACE}/taichi" >> $GITHUB_ENV
-    - uses: ammaraskar/sphinx-action@35082eb
+    - name: Sphinx Build
+      uses: ammaraskar/sphinx-action@35082eb35b69713fe335801c4d5846a4cc3c91ff
       with:
         docs-folder: "experimental/"
         build-command: "make html"
-

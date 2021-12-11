@@ -12,9 +12,13 @@
 #
 import os
 import sys
-taichi_path = os.getenv('TAICHI_PATH', '.')
-sys.path.insert(0, os.path.abspath(taichi_path))
 
+# for local generation, refer to Taichi source repo
+# taichi_path = os.getenv('TAICHI_PATH', '.')
+# sys.path.insert(0, os.path.abspath(taichi_path))
+
+# for ci generation, import installed taichi
+import taichi as ti
 
 # -- Project information -----------------------------------------------------
 

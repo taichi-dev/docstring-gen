@@ -6,6 +6,10 @@
 Welcome to Taichi Language's API reference!
 ===========================================
 
+.. image:: https://raw.githubusercontent.com/taichi-dev/public_files/master/taichi/fractal.gif
+   :width: 400
+   :alt: 
+
 If you are looking for more structured documentation about Taichi,
 please refer to `Taichi Docsite <https://docs.taichi.graphics/>`_.
 

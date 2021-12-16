@@ -3,17 +3,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to taichi-api-docstring's documentation!
-================================================
+Welcome to Taichi Language's API reference!
+===========================================
+
+.. image:: https://raw.githubusercontent.com/taichi-dev/public_files/master/taichi/fractal.gif
+   :width: 400
+   :alt: 
+
+If you are looking for more structured documentation about Taichi,
+please refer to `Taichi Docsite <https://docs.taichi.graphics/>`_.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 4
+   :caption: This API reference is mainly for looking up the signatures and functions of modules and classes that you will need to write programs with Taichi:
 
-
-
-Indices and tables
-==================
+Quick links
+===========
 
 * :ref:`genindex`
 * :ref:`modindex`

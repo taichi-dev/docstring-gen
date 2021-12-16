@@ -14,11 +14,8 @@ import os
 import sys
 
 # for local generation, refer to Taichi source repo
-# taichi_path = os.getenv('TAICHI_PATH', '.')
+taichi_path = os.getenv('TAICHI_PATH', '.')
 # sys.path.insert(0, os.path.abspath(taichi_path))
-
-# for ci generation, import installed taichi
-import taichi as ti
 
 # -- Project information -----------------------------------------------------
 
@@ -35,6 +32,16 @@ author = 'Taichi Graphics'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
+    'autoapi.extension',
+]
+
+# Auto API setup
+autoapi_type = 'python'
+autoapi_dirs = [taichi_path, 'src']
+
+# filter out unncessary modules
+autoapi_ignore = [
+    '*examples*',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

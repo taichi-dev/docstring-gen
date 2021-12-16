@@ -10,7 +10,12 @@ Welcome to taichi-api-docstring's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+.. autosummary::
+   :toctree: _autosummary
+   :template: custom-module-template.rst
+   :recursive:
 
+   taichi
 
 Indices and tables
 ==================

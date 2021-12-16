@@ -41,15 +41,7 @@ autoapi_dirs = [taichi_path, 'src']
 
 # filter out unncessary modules
 autoapi_ignore = [
-    '*external*',
-    '*tests*',
-    '*scripts*',
-    '*misc*',
-    '*ci*',
-    '*benchmarks*',
     '*examples*',
-    '*setup.py',
-    '*make_release.py',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

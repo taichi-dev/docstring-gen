@@ -66,3 +66,41 @@ html_theme = 'bizstyle'
 html_static_path = ['_static']
 
 master_doc = 'index'
+
+html_sidebars = {
+   '**': [
+      'versions.html'
+   ]
+}
+
+try:
+   html_context
+except NameError:
+   html_context = dict()
+html_context['display_lower_left'] = True
+
+# SET CURRENT_VERSION
+from git import Repo
+repo = Repo(os.path.join(taichi_path, '../..'))
+
+if 'current_version' in os.environ:
+   # get the current_version env var set by buildDocs.sh
+   current_version = os.environ['current_version']
+else:
+   # set this build's current version by looking at the branch
+   current_version = repo.active_branch.name
+
+# tell the theme which version we're currently on ('current_version' affects
+# the lower-left rtd menu and 'version' affects the logo-area version)
+html_context['current_version'] = current_version
+html_context['version'] = current_version
+
+# POPULATE LINKS TO OTHER VERSIONS
+html_context['versions'] = list()
+
+versions = [branch.name for branch in repo.tags]
+versions = versions[len(versions)-1:]
+
+html_context['versions'].append( ('master', '/') )
+for version in versions:
+   html_context['versions'].append( (version, '/' +version+ '/') )

@@ -58,7 +58,29 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'bizstyle'
+html_theme = 'pydata_sphinx_theme'
+
+html_logo = '_static/logo.svg'
+
+html_theme_options = {
+    "navbar_align": "right",
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/taichi-dev/taichi",
+            "icon": "fab fa-github",
+        }
+    ],
+    "external_links": [
+      {"name": "Taichi Documentation Site", "url": "https://docs.taichi.graphics"},
+    ],
+    # "switcher": {
+    #     "json_url": "http://127.0.0.1:8080/_build/html/_static/versions.json",
+    #     "url_template": "http://127.0.0.1:8080/version-{version}/",
+    #     "version_match": version,
+    # },
+    # "navbar_end": ["version-switcher"]
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -67,11 +89,11 @@ html_static_path = ['_static']
 
 master_doc = 'index'
 
-html_sidebars = {
-   '**': [
-      'versions.html'
-   ]
-}
+# html_sidebars = {
+#    '**': [
+#       'versions.html'
+#    ]
+# }
 
 try:
    html_context

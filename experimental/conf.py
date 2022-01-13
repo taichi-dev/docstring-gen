@@ -38,6 +38,15 @@ extensions = [
 # Auto API setup
 autoapi_type = 'python'
 autoapi_dirs = [taichi_path, 'src']
+autoapi_options = [
+   'members',
+   'undoc-members',
+#  'private-members',
+   'show-inheritance',
+   'show-module-summary',
+#  'special-members',
+   'imported-members'
+]
 
 # filter out unncessary modules
 autoapi_ignore = [

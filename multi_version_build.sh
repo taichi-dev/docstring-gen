@@ -12,6 +12,7 @@ git fetch --tags
 git checkout master
 cd $DOCSTRING_GEN_PATH
 cd experimental
+export current_version=master
 make clean
 make version
 
@@ -23,6 +24,7 @@ cd $DOCSTRING_GEN_PATH
 cd experimental
 export current_version=$latestTag
 make version
+make apideploy
 #versions="`git for-each-ref '--format=%(refname:lstrip=-1)' refs/tags | grep -viE '^(HEAD|gh-pages)$'`"
 #for current_version in ${versions}; do
 #    export current_version

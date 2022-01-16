@@ -62,6 +62,10 @@ html_theme = 'pydata_sphinx_theme'
 
 html_logo = '_static/logo.svg'
 
+html_permalinks_icon = '#'
+
+highlight_language ='none'
+
 html_theme_options = {
     "navbar_align": "right",
     "icon_links": [
@@ -89,11 +93,9 @@ html_static_path = ['_static']
 
 master_doc = 'index'
 
-# html_sidebars = {
-#    '**': [
-#       'versions.html'
-#    ]
-# }
+html_sidebars = {
+    "**": ["versions.html", "sidebar-nav-bs.html"]
+}
 
 try:
    html_context
@@ -123,6 +125,6 @@ html_context['versions'] = list()
 versions = [branch.name for branch in repo.tags]
 versions = versions[len(versions)-1:]
 
-html_context['versions'].append( ('master', '/') )
+html_context['versions'].append( ('master', '/api/') )
 for version in versions:
-   html_context['versions'].append( (version, '/' +version+ '/') )
+   html_context['versions'].append( (version, '/api/' +version+ '/') )

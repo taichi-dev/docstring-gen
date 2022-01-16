@@ -15,6 +15,9 @@ help:
 version:
 	$(SPHINXBUILD) -b html $(SOURCEDIR) $(BUILDDIR)/html/$(current_version)
 
+apideploy:
+	rm -rf $(TAICHI_WEBSITE)/website/src/pages/api/${current_version} && cp -r $(BUILDDIR)/html/$(current_version)/autoapi/ $(TAICHI_WEBSITE)/website/src/pages/api/$(current_version)/
+
 .PHONY: help Makefile
 
 # Catch-all target: route all unknown targets to Sphinx using the new

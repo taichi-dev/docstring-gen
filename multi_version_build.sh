@@ -15,6 +15,7 @@ cd experimental
 export current_version=master
 make clean
 make version
+make apideploy
 
 cd $TAICHI_PATH
 latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)

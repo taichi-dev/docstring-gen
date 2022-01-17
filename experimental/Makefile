@@ -16,7 +16,7 @@ version:
 	$(SPHINXBUILD) -b dirhtml $(SOURCEDIR) $(BUILDDIR)/html/$(current_version)
 
 apideploy:
-	rm -rf $(TAICHI_WEBSITE)/website/src/pages/api/${current_version} && mkdir -p $(TAICHI_WEBSITE)/website/src/pages/api/$(current_version)/ && cp -r $(BUILDDIR)/html/$(current_version)/autoapi/ $(TAICHI_WEBSITE)/website/src/pages/api/$(current_version)/
+	rm -rf $(TAICHI_WEBSITE)/website/src/pages/api/${current_version} && mkdir -p $(TAICHI_WEBSITE)/website/src/pages/api/$(current_version)/ && cp -r $(BUILDDIR)/html/$(current_version)/autoapi/* $(TAICHI_WEBSITE)/website/src/pages/api/$(current_version)/
 
 .PHONY: help Makefile
 

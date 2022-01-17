@@ -5,6 +5,7 @@ set -x
 apt-get update
 apt-get -y install git
 pip install sphinx-autoapi==1.8.4 gitpython
+pip install pydata-sphinx-theme==0.7.2 gitpython
 
 # Making master doc
 cd $TAICHI_PATH

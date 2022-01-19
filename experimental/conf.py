@@ -122,7 +122,8 @@ html_context['version'] = current_version
 # POPULATE LINKS TO OTHER VERSIONS
 html_context['versions'] = list()
 
-versions = [branch.name for branch in repo.tags]
+tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
+versions = [branch.name for branch in tags]
 versions = versions[len(versions)-1:]
 
 html_context['versions'].append( ('master', '/api/') )

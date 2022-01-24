@@ -39,6 +39,8 @@ extensions = [
 autoapi_type = 'python'
 autoapi_dirs = [taichi_path, 'src']
 
+autoapi_template_dir = '_autoapi_templates'
+
 # filter out unncessary modules
 autoapi_ignore = [
     '*examples*',
@@ -126,6 +128,6 @@ tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
 versions = [branch.name for branch in tags]
 versions = versions[len(versions)-1:]
 
-html_context['versions'].append( ('master', '/api/') )
+html_context['versions'].append( ('master', '/api/master/') )
 for version in versions:
-   html_context['versions'].append( (version, '/api/' +version+ '/') )
+   html_context['versions'].append( (version, '/api/') )

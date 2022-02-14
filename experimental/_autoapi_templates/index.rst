@@ -16,9 +16,11 @@ please refer to `Taichi Docsite <https://docs.taichi.graphics/>`_.
 .. toctree::
    :titlesonly:
 
-   {% for page in pages %}
-   {% if page.top_level_object and page.display %}
-   {{ page.include_path }}
-   {% endif %}
-   {% endfor %}
-
+   taichi/index
+   taichi/ad/index
+   taichi/aot/index
+   taichi/linalg/index
+   taichi/profiler/index
+   taichi/tools/index
+   taichi/types/index
+   taichi/ui/index

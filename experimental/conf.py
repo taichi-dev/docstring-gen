@@ -41,6 +41,7 @@ autoapi_dirs = [taichi_path, 'src']
 autoapi_member_order = 'alphabetical'
 autoapi_options = [
    'members',
+   'inherited-members',
    'undoc-members',
 #  'private-members',
    'show-inheritance',

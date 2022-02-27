@@ -13,6 +13,8 @@
 import os
 import sys
 
+from packaging.version import Version
+
 # for local generation, refer to Taichi source repo
 taichi_path = os.getenv('TAICHI_PATH', '.')
 # sys.path.insert(0, os.path.abspath(taichi_path))
@@ -38,6 +40,9 @@ extensions = [
 # Auto API setup
 autoapi_type = 'python'
 autoapi_dirs = [taichi_path, 'src']
+
+autoapi_template_dir = '_autoapi_templates'
+
 autoapi_member_order = 'alphabetical'
 autoapi_options = [
    'members',
@@ -49,8 +54,6 @@ autoapi_options = [
 #  'special-members',
    'imported-members'
 ]
-
-autoapi_template_dir = '_autoapi_templates'
 
 # filter out unncessary modules
 autoapi_ignore = [
@@ -135,9 +138,17 @@ html_context['version'] = current_version
 # POPULATE LINKS TO OTHER VERSIONS
 html_context['versions'] = list()
 
-tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
-versions = [branch.name for branch in tags]
-versions = versions[len(versions)-1:]
+tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime, reverse=True)
+versions = list()
+currentMinor = 0
+for tag in tags:
+    current = Version(tag.name)
+    if current.minor != currentMinor and current.minor >= 8:
+        versions.append(tag.name)
+        currentMinor = current.minor
+
+# versions = [branch.name for branch in tags]
+# versions = versions[len(versions)-1:]
 
 html_context['versions'].append( ('master', '/api/master/') )
 for version in versions:

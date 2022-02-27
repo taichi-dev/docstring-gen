@@ -8,14 +8,13 @@ Welcome to Taichi Language's API reference!
 
 .. image:: https://raw.githubusercontent.com/taichi-dev/public_files/master/taichi/fractal.gif
    :width: 400
-   :alt: 
+   :alt:
 
 If you are looking for more structured documentation about Taichi,
 please refer to `Taichi Docsite <https://docs.taichi.graphics/>`_.
 
 .. toctree::
    :maxdepth: 4
-   :caption: This API reference is mainly for looking up the signatures and functions of modules and classes that you will need to write programs with Taichi:
 
 Quick links
 ===========

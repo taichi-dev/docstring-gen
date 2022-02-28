@@ -140,16 +140,26 @@ html_context['versions'] = list()
 
 tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime, reverse=True)
 versions = list()
-currentMinor = 0
+currentMinor = -1
+count = 0
 for tag in tags:
     current = Version(tag.name)
     if current.minor != currentMinor and current.minor >= 8:
         versions.append(tag.name)
         currentMinor = current.minor
+        count = count + 1
+        if count >= 2:
+            break
 
 # versions = [branch.name for branch in tags]
 # versions = versions[len(versions)-1:]
 
 html_context['versions'].append( ('master', '/api/master/') )
+idx = 0
 for version in versions:
-   html_context['versions'].append( (version, '/api/') )
+    if idx == 0:
+       html_context['versions'].append( (version, '/api/') )
+    else:
+       html_context['versions'].append( (version, '/api/'+version+'/') )
+    idx = idx + 1
+

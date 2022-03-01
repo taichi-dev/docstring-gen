@@ -153,7 +153,7 @@ def keep_latest_n_versions(versions: List[str], keep: int = 2):
     Return the latest semantic version from each major -> minor group.
     Note that the versions don't need to be sorted.
     """
-    versions = sorted(T, key=lambda v: comparator(v), reverse=True)
+    versions = sorted(versions, key=lambda v: comparator(v), reverse=True)
     got, res = 0, []
     for _, group in groupby(versions, lambda x: (Version(x).major, Version(x).minor)):
         if got >= keep:
@@ -162,8 +162,8 @@ def keep_latest_n_versions(versions: List[str], keep: int = 2):
         got += 1
     return res
 
-tag_names = [Version(tag.name) for tag in tags]
-versions = keep_latest_n_versions(tag_names)
+tag_names = [tag.name for tag in tags]
+versions = keep_latest_n_versions(versions=tag_names, keep=2)
 
 # versions = [branch.name for branch in tags]
 # versions = versions[len(versions)-1:]
@@ -174,6 +174,5 @@ for version in versions:
     if idx == 0:
        html_context['versions'].append( (version, '/api/') )
     else:
-       html_context['versions'].append( (version, '/api/'+version+'/') )
-    idx = idx + 1
-
+       html_context['versions'].append( (version, f'/api/{version}/') )
+    idx += 1

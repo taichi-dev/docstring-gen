@@ -37,6 +37,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
     'autoapi.extension',
+    'sphinx.ext.mathjax',
 ]
 
 # Auto API setup

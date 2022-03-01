@@ -10,6 +10,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+import enum
 import os
 import sys
 
@@ -169,10 +170,9 @@ versions = keep_latest_n_versions(versions=tag_names, keep=2)
 # versions = versions[len(versions)-1:]
 
 html_context['versions'].append( ('master', '/api/master/') )
-idx = 0
-for version in versions:
+
+for idx, version in enumerate(versions):
     if idx == 0:
        html_context['versions'].append( (version, '/api/') )
     else:
        html_context['versions'].append( (version, f'/api/{version}/') )
-    idx += 1

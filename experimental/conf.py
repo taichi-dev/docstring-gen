@@ -13,6 +13,10 @@
 import os
 import sys
 
+from packaging.version import Version
+from typing import List
+from itertools import groupby
+
 # for local generation, refer to Taichi source repo
 taichi_path = os.getenv('TAICHI_PATH', '.')
 # sys.path.insert(0, os.path.abspath(taichi_path))
@@ -38,6 +42,9 @@ extensions = [
 # Auto API setup
 autoapi_type = 'python'
 autoapi_dirs = [taichi_path, 'src']
+
+autoapi_template_dir = '_autoapi_templates'
+
 autoapi_member_order = 'alphabetical'
 autoapi_options = [
    'members',
@@ -49,8 +56,6 @@ autoapi_options = [
 #  'special-members',
    'imported-members'
 ]
-
-autoapi_template_dir = '_autoapi_templates'
 
 # filter out unncessary modules
 autoapi_ignore = [
@@ -135,10 +140,38 @@ html_context['version'] = current_version
 # POPULATE LINKS TO OTHER VERSIONS
 html_context['versions'] = list()
 
-tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
-versions = [branch.name for branch in tags]
-versions = versions[len(versions)-1:]
+tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime, reverse=True)
+def comparator(version: str):
+    """
+    This comparator compares only major and minor versions of a SemVer string.
+    """
+    version = Version(version)
+    return (version.major, version.minor)
+
+def keep_latest_n_versions(versions: List[str], keep: int = 2):
+    """
+    Return the latest semantic version from each major -> minor group.
+    Note that the versions don't need to be sorted.
+    """
+    versions = sorted(versions, key=lambda v: comparator(v), reverse=True)
+    got, res = 0, []
+    for _, group in groupby(versions, lambda x: (Version(x).major, Version(x).minor)):
+        if got >= keep:
+            return res
+        res.append(list(group)[0])
+        got += 1
+    return res
+
+tag_names = [tag.name for tag in tags]
+versions = keep_latest_n_versions(versions=tag_names, keep=2)
+
+# versions = [branch.name for branch in tags]
+# versions = versions[len(versions)-1:]
 
 html_context['versions'].append( ('master', '/api/master/') )
-for version in versions:
-   html_context['versions'].append( (version, '/api/') )
+
+for idx, version in enumerate(versions):
+    if idx == 0:
+       html_context['versions'].append( (version, '/api/') )
+    else:
+       html_context['versions'].append( (version, f'/api/{version}/') )

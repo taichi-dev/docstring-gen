@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Taichi Language's API reference!
-===========================================
+.. raw:: html
+
+   <h1>Welcome to Taichi Language's API reference!</h1>
 
 .. image:: https://raw.githubusercontent.com/taichi-dev/public_files/master/taichi/fractal.gif
    :width: 400
@@ -15,6 +16,7 @@ please refer to `Taichi Docsite <https://docs.taichi.graphics/>`_.
 
 .. toctree::
    :titlesonly:
+   :maxdepth: 1
 
    taichi/index
    taichi/ad/index
@@ -24,3 +26,4 @@ please refer to `Taichi Docsite <https://docs.taichi.graphics/>`_.
    taichi/tools/index
    taichi/types/index
    taichi/ui/index
+

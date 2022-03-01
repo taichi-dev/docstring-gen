@@ -14,6 +14,8 @@ import os
 import sys
 
 from packaging.version import Version
+from typing import List
+from itertools import groupby
 
 # for local generation, refer to Taichi source repo
 taichi_path = os.getenv('TAICHI_PATH', '.')
@@ -139,17 +141,29 @@ html_context['version'] = current_version
 html_context['versions'] = list()
 
 tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime, reverse=True)
-versions = list()
-currentMinor = -1
-count = 0
-for tag in tags:
-    current = Version(tag.name)
-    if current.minor != currentMinor and current.minor >= 8:
-        versions.append(tag.name)
-        currentMinor = current.minor
-        count = count + 1
-        if count >= 2:
-            break
+def comparator(version: str):
+    """
+    This comparator compares only major and minor versions of a SemVer string.
+    """
+    version = Version(version)
+    return (version.major, version.minor)
+
+def keep_latest_n_versions(versions: List[str], keep: int = 2):
+    """
+    Return the latest semantic version from each major -> minor group.
+    Note that the versions don't need to be sorted.
+    """
+    versions = sorted(T, key=lambda v: comparator(v), reverse=True)
+    got, res = 0, []
+    for _, group in groupby(versions, lambda x: (Version(x).major, Version(x).minor)):
+        if got >= keep:
+            return res
+        res.append(list(group)[0])
+        got += 1
+    return res
+
+tag_names = [Version(tag.name) for tag in tags]
+versions = keep_latest_n_versions(tag_names)
 
 # versions = [branch.name for branch in tags]
 # versions = versions[len(versions)-1:]

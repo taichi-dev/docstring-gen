@@ -1,29 +1,28 @@
-.. taichi-api-docstring documentation master file, created by
-   sphinx-quickstart on Sat Jul 24 23:51:26 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 .. raw:: html
 
-   <h1>Welcome to Taichi Language's API reference!</h1>
+   <h1>Taichi Language's API reference</h1>
 
 .. image:: https://raw.githubusercontent.com/taichi-dev/public_files/master/taichi/fractal.gif
    :width: 400
+   :align: center
    :alt:
 
-If you are looking for more structured documentation about Taichi,
-please refer to `Taichi Docsite <https://docs.taichi.graphics/>`_.
+You have arrived at Taichi's API reference page, if you are looking for more structured or 
+introductory articles about Taichi Lang, please refer to `Docs Section <https://docs.taichi.graphics/>`_.
+
+.. raw:: html
+
+   <h2>Python API</h2>
 
 .. toctree::
    :titlesonly:
    :maxdepth: 1
 
-   taichi/index
-   taichi/ad/index
-   taichi/aot/index
-   taichi/linalg/index
-   taichi/profiler/index
-   taichi/tools/index
-   taichi/types/index
-   taichi/ui/index
-
+   taichi: The main taichi module <taichi/index>
+   taichi.ad: Taichi Autodiff system <taichi/ad/index>
+   taichi.aot: Taichi AOT system <taichi/aot/index>
+   taichi.linalg: Taichi Linear algebra library <taichi/linalg/index>
+   taichi.profiler: Taichi profiler tools <taichi/profiler/index>
+   taichi.tools: Miscellaneous tools shipped with Taichi <taichi/tools/index>
+   taichi.types: Taichi types <taichi/types/index>
+   taichi.ui: Taichi UI components (GUI and GGUI) <taichi/ui/index>

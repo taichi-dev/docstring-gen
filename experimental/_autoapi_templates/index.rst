@@ -1,13 +1,13 @@
-.. raw:: html
-
-   <h1>Taichi Language's API reference</h1>
+====================
+Taichi Language's API reference
+====================
 
 .. meta::
    :description: This is Taichi Lang's API reference page
    :keywords: Taichi Lang, Taichi API
    :docsearch\:category: API Reference
 
-You have arrived at Taichi Lang's API reference page, if you are looking for more structured or 
+You have arrived at Taichi Lang's API reference page, if you are looking for more structured or
 introductory articles about Taichi Lang, please refer to `Docs Section <https://docs.taichi.graphics/>`_.
 
 .. image:: https://raw.githubusercontent.com/taichi-dev/public_files/master/taichi/fractal.gif

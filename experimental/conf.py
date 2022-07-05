@@ -24,7 +24,7 @@ taichi_path = os.getenv('TAICHI_PATH', '.')
 # -- Project information -----------------------------------------------------
 
 project = 'taichi-api-docstring'
-copyright = '2021, Taichi Graphics'
+copyright = '2022, Taichi Graphics'
 author = 'Taichi Graphics'
 
 
@@ -80,6 +80,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = 'pydata_sphinx_theme'
 
 html_logo = '_static/logo.svg'
+
+# html_title = "Taichi Language's API reference"
 
 html_permalinks_icon = '#'
 

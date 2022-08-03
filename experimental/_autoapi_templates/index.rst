@@ -30,4 +30,5 @@ introductory articles about Taichi Lang, please refer to `Docs Section <https://
    taichi.profiler: Taichi profiler tools <taichi/profiler/index>
    taichi.tools: Miscellaneous tools shipped with Taichi <taichi/tools/index>
    taichi.types: Taichi types <taichi/types/index>
+   taichi.types.quant: Taichi quantized types <taichi/types/quant/index>
    taichi.ui: Taichi UI components (GUI and GGUI) <taichi/ui/index>

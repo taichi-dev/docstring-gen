@@ -10,11 +10,6 @@ Taichi Language's API reference
 You have arrived at Taichi Lang's API reference page, if you are looking for more structured or
 introductory articles about Taichi Lang, please refer to `Docs Section <https://docs.taichi.graphics/>`_.
 
-.. image:: https://raw.githubusercontent.com/taichi-dev/public_files/master/taichi/fractal.gif
-   :width: 400
-   :align: center
-   :alt:
-
 .. raw:: html
 
    <h2>Python API</h2>

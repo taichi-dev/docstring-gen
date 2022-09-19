@@ -40,6 +40,14 @@ extensions = [
     'sphinx.ext.mathjax',
 ]
 
+def skip_member(app, what, name, obj, skip, options):
+    if what == "method" and "abstractmethod" in obj.properties:
+        skip = True
+    return skip
+
+def setup(sphinx):
+   sphinx.connect("autoapi-skip-member", skip_member)
+
 # Auto API setup
 autoapi_type = 'python'
 autoapi_dirs = [taichi_path, 'src']

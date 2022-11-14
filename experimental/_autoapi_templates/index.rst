@@ -22,7 +22,7 @@ introductory articles about Taichi Lang, please refer to `Docs Section <https://
    taichi.ad: Taichi Autodiff system <taichi/ad/index>
    taichi.aot: Taichi AOT system <taichi/aot/index>
    taichi.linalg: Taichi Linear algebra library <taichi/linalg/index>
-   taichi.linalg: Taichi math library <taichi/math/index>
+   taichi.math: Taichi math library <taichi/math/index>
    taichi.profiler: Taichi profiler tools <taichi/profiler/index>
    taichi.tools: Miscellaneous tools shipped with Taichi <taichi/tools/index>
    taichi.types: Taichi types <taichi/types/index>
